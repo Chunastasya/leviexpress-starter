@@ -5,7 +5,7 @@ import { App } from './components/App';
 import { HomePage } from './pages/HomePage';
 import { ReservationPage } from './components/ReservationPage';
 import './global.css';
-import { JourneyPicker } from './components/JourneyPicker';
+
 
 const router = createBrowserRouter([
   {

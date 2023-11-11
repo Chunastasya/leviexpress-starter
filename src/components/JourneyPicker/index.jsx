@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
+import { DatesOptions } from "./DatesOptions";
 
 export const CityOptions = ({ cities }) => {
 return cities.map((city) =>
@@ -18,7 +19,7 @@ export const JourneyPicker = ({ onJourneyChange }) => {
     {
       const resp = await fetch('https://apps.kodim.cz/daweb/leviexpress/api/cities')
       if (!resp.ok) {
-        alert('Neco je spatne, nepodarilo see nacist seznam mest.')
+        alert('Neco je spatne, nepodarilo se nacist seznam mest.')
         return
     }
     const data = await resp.json()
@@ -57,17 +58,7 @@ export const JourneyPicker = ({ onJourneyChange }) => {
            
             </select>
           </label>
-          <label>
-            <div className="journey-picker__label">Datum:</div>
-            <select onChange={(event) => setDate(event.target.value)}>
-              <option value="">Vyberte</option>
-              <option value="datum01">Datum 01</option>
-              <option value="datum02">Datum 02</option>
-              <option value="datum03">Datum 03</option>
-              <option value="datum04">Datum 04</option>
-              <option value="datum05">Datum 05</option>
-            </select>
-          </label>
+          <DatesOptions></DatesOptions>
           <div className="journey-picker__controls">
             <button className="btn" type="submit">
               Vyhledat spoj
